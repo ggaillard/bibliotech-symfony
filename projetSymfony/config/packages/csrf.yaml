@@ -1,0 +1,4 @@
+# Protection CSRF « classique » : un jeton secret, propre à la session de l'utilisateur,
+# est ajouté à chaque formulaire et vérifié à la réception (séance 4).
+framework:
+    csrf_protection: true

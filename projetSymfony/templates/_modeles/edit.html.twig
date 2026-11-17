@@ -1,0 +1,31 @@
+{# Modèle de démarrage pour une vue EDIT (formulaire de modification).
+   Côté contrôleur : $this->createForm(…, $entite, ['method' => 'PUT'])
+   form_start ajoute alors le champ caché _method=PUT. #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la ressource{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mb-4">Modifier la ressource</h1>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            {{ form_start(form) }}
+                {{ form_errors(form) }} {# les erreurs du formulaire entier (jeton CSRF invalide…) #}
+                {# TODO : un form_row par champ #}
+
+                {{ form_rest(form) }}
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                    {# TODO : le lien « Annuler » vers la liste #}
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    {# TODO (séance 4) : un formulaire de suppression SÉPARÉ :
+       méthode POST, champ caché _method=DELETE, jeton csrf_token('…') #}
+</div>
+{% endblock %}

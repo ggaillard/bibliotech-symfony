@@ -1,0 +1,16 @@
+when@dev: &dev
+    # See full configuration: https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#full-default-bundle-configuration
+    zenstruck_foundry:
+        # Des noms, des phrases… en français
+        faker:
+            locale: fr_FR
+        persistence:
+            # Flush only once per call of `PersistentObjectFactory::create()`
+            flush_once: true
+        orm:
+            reset:
+                # Avant les tests, la base de test est recréée en jouant VOS migrations :
+                # une migration qui échoue fait échouer les tests.
+                mode: migrate
+
+when@test: *dev

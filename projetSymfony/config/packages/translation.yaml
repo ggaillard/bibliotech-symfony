@@ -1,0 +1,8 @@
+framework:
+    # Les messages de validation, de sécurité et de pagination de Symfony existent en français.
+    default_locale: fr
+    enabled_locales: ['fr']
+    translator:
+        default_path: '%kernel.project_dir%/translations'
+        fallbacks: ['fr']
+        providers:

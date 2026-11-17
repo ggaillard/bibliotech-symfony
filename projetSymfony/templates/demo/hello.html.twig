@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Démonstration Paramètres{% endblock %}
+
+{% block fil_ariane %}
+    <li class="breadcrumb-item">Démo</li>
+    <li class="breadcrumb-item active" aria-current="page">Hello {{ nom }}</li>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h2><i class="fas fa-code"></i> Démonstration : paramètres de route</h2>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success">
+                        <h4><i class="fas fa-hand-wave"></i> Bonjour {{ nom }} !</h4>
+                        <p>Cette page montre l'utilisation des <strong>paramètres de route</strong> dans Symfony.</p>
+                    </div>
+
+                    <h5><i class="fas fa-info-circle"></i> Comment ça fonctionne ?</h5>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>1. Route déclarée dans <code>src/Controller/DemoController.php</code></h6>
+                            <pre class="bg-light p-3 rounded"><code>#[Route('/demo/hello/{nom}', name: 'demo.hello')]
+public function hello(string $nom = 'Étudiant'): Response
+{
+    return $this->render('demo/hello.html.twig', [
+        'nom' => $nom,
+    ]);
+}</code></pre>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h6>2. Paramètre affiché dans la vue Twig</h6>
+                            <pre class="bg-light p-3 rounded"><code>{% verbatim %}&lt;h4&gt;Bonjour {{ nom }} !&lt;/h4&gt;{% endverbatim %}</code></pre>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h5><i class="fas fa-flask"></i> Testez d'autres valeurs :</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                {% for prenom in ['Alice', 'Bob', 'Charlie'] %}
+                                    <li class="list-group-item">
+                                        <a href="{{ path('demo.hello', {nom: prenom}) }}">/demo/hello/{{ prenom }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-light">
+                                <strong>Paramètre facultatif :</strong><br>
+                                Si vous visitez <code>/demo/hello</code> sans paramètre,
+                                la valeur par défaut « Étudiant » est utilisée.
+                                <br><br>
+                                <a href="{{ path('demo.hello') }}" class="btn btn-sm btn-outline-primary">
+                                    Tester sans paramètre
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-graduation-cap"></i> Concept :</h6>
+                        <p class="mb-0">
+                            Symfony découpe l'URL, reconnaît le segment <code>{nom}</code> et le transmet
+                            en argument à la méthode du contrôleur. C'est la base du routage dynamique.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path('home') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Retour à l'accueil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

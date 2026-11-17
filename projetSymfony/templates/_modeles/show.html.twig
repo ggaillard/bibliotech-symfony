@@ -1,0 +1,30 @@
+{# Modèle de démarrage pour une vue SHOW (fiche) #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la ressource{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1>Détails de la ressource</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            {# TODO : les boutons « Modifier » et « Retour à la liste » #}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            {# TODO : les informations de l'enregistrement #}
+            <dl class="row mb-0">
+                <dt class="col-sm-3">Champ 1</dt>
+                <dd class="col-sm-9">Valeur</dd>
+
+                <dt class="col-sm-3">Champ 2</dt>
+                <dd class="col-sm-9">Valeur</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+{% endblock %}

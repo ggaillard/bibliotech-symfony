@@ -1,0 +1,10 @@
+twig:
+    file_name_pattern: '*.twig'
+
+    # Les formulaires Symfony sont rendus avec les classes Bootstrap 5
+    # (form-control, is-invalid, invalid-feedback…).
+    form_themes: ['bootstrap_5_layout.html.twig']
+
+when@test:
+    twig:
+        strict_variables: true

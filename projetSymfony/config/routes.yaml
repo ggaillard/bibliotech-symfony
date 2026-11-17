@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../vendor/symfony/routing/Loader/schema/routing.schema.json
+
+# Les routes de BiblioTech.
+# La plupart sont déclarées dans les contrôleurs, avec l'attribut #[Route] :
+# la ligne ci-dessous les importe toutes (dossier src/Controller/).
+#
+# Pour les lister :   php bin/console debug:router
+
+controllers:
+    resource: routing.controllers
+
+# Page statique : pas besoin d'écrire un contrôleur.
+# Le TemplateController de Symfony affiche directement le gabarit indiqué.
+about:
+    path: /about
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: about.html.twig

@@ -1,0 +1,39 @@
+{# Modèle de démarrage pour une vue INDEX (liste) #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des ressources{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1>Liste des ressources</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            {# TODO : le bouton « Ajouter » vers la route du formulaire d'ajout #}
+        </div>
+    </div>
+
+    {# Les messages flash sont déjà affichés par base.html.twig #}
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    {# TODO : les colonnes #}
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {# TODO : une ligne par élément ({% for … in … %} … {% else %} … {% endfor %}) #}
+                <tr>
+                    <td colspan="3" class="text-center text-muted">Aucune donnée à afficher</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {# TODO : les liens de pagination #}
+</div>
+{% endblock %}

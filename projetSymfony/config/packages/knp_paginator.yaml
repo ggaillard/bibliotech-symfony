@@ -1,0 +1,10 @@
+# Pagination des listes (séance 3) : $paginator->paginate($requete, $page, 15)
+# puis, dans la vue, {{ knp_pagination_render(livres) }}.
+# Les liens de pagination conservent les autres paramètres de l'URL (filtres).
+knp_paginator:
+    default_options:
+        page_name: page
+        distinct: true
+    template:
+        pagination: '@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig'
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig'
